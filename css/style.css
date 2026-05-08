@@ -48,3 +48,10 @@
                 background-color: #ddd;
                 color: black;
             }
+        .banner 
+            {
+                background-color: #3498db;
+                color:white;
+                padding: 20px;
+                text-align: center;
+            }
