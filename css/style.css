@@ -55,3 +55,27 @@
                 padding: 20px;
                 text-align: center;
             }
+
+            .team_img 
+            {
+                overflow: hidden;
+                text-align: center;
+            }
+            .team_img img 
+            {
+                width: 180px;
+                height: auto;
+                padding: 5px;
+                transition: 0.3s ease;
+            }
+            .team_img img:hover 
+            {
+                transform: scale(1.1);
+            }
+            .team_member 
+            {
+                display: inline-block;
+                font-size: small;
+                color: #373737;
+                text-transform: uppercase;
+            }

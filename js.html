@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
+</head>
+<body onload="StarTime()">
+
+<p id="demo"></p>
+
+<script>
+// Your JavaScript code goes here
+document.write("Hello, JavaScript!<br>");
+document.write(45 + 10);
+
+document.getElementById("demo").innerHTML = "This is a demo paragraph.";
+</script>
+<br>
+<button type="button" onclick="document.getElementById('myBulb').src='images/bulb_on.webp'">Turn On</button>
+
+<img id="myBulb" src="images/bulb_off.webp" alt="" style="width: 300px">
+
+<button type="button" onclick="document.getElementById('myBulb').src='images/bulb_off.webp'">Turn Off</button>
+
+<br>
+<script>
+// window.alert("The database was connected successfully!");
+console.log(2345 - 1234);
+</script>
+
+<table>
+<tr>
+<th>name</th>
+<th>age</th>
+<th>email</th>
+<th>action</th>
+</tr>
+<tr>
+<td>John Doe</td>
+<td>30</td>
+<td>johndoe@example.com</td>
+<td>
+<button type="button" onclick="alert('User: John Doe')">View</button>
+
+<button type="button" onclick="return confirm('Are you sure you want to delete User: John Doe?')">Delete</button>
+</td>
+</tr>
+</table>
+
+<script>
+var userName = "Anna Smith"; // variable declaration and initialization
+let userAge = 28; // variable declaration and initialization
+document.write("<br>Her name is " + userName + " and she is " + userAge + " years old.");
+
+var score = 85;
+score += 10; // score is now 95
+document.write("<br>New score: " + score);
+
+const num1 = 5;
+const num2 = 10;
+const sum = num1 + num2;
+document.write("<br>Sum: " + sum);
+
+const age = 12;
+// age += 5; // This will cause an error because 'age' is a constant
+document.write("<br>New age: " + age);
+
+// var fname = prompt("Enter your full name:");
+// document.write("<br>Hello : " + fname);
+
+var lname = "Smith";
+var mname = "Anna";
+var fruits = ["Apple", "Banana", "Cherry", 56, 48, true];
+
+document.write("<br>Last Name: " + lname);
+document.write("<br>Middle Name: " + mname);
+document.write("<br>Fruits: " + fruits);
+document.write("<br>Second Fruit: " + fruits[1]); // output: Banana
+document.write("<br>Joined Fruits: " + fruits.join("/ ")); // output: Apple-Banana-Cherry-56-48-true
+
+// Conditional statement
+if (age >= 18) {
+document.write("<br>You are an adult.");
+} else {
+document.write("<br>You are NOT an adult.");
+}
+
+
+
+// call or invoke the function
+// document.write(greetings(mname, hours));
+</script>
+
+<p id="ReadTime"></p>
+
+<script>
+    var shopping = ["Milk", "Bread", "Eggs", "Butter"];
+    shopping.push("Cheese"); // Adds "Cheese" to the end of the array
+    document.write("<br>Shopping List: " + shopping.join(", "));
+    document.write("<br>Last Item: " + shopping[4]); // Output: Cheese
+// array (
+//     0 => 'Milk',
+//     1 => 'Bread',
+//     2 => 'Eggs',
+//     3 => 'Butter',
+//     4 => 'Cheese'
+// )
+
+// array(
+//     name => 'Alex',
+//     age => 25,
+//     email => 'alex.okama@example.com',
+//     'phone' => '123-456-7890'
+// )
+// Associative array (object in JavaScript)
+
+var person = {
+    name: "Alex Okama",
+    age: 25,
+    email: "alex.okama@example.com",
+    phone: "123-456-7890"
+};
+
+document.write("<br>Email: " + person.email);
+document.write("<br>Phone: " + person.phone);
+
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
