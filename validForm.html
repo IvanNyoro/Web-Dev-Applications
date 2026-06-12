@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .registration-form {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            font-size: 1.6em;
+            font-family: Arial, sans-serif;
+        }
+        .error{
+            color: red;
+            font-size: smaller;
+            margin: 0;
+        }
+        .success{
+            color: green;
+            font-size: smaller;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" id="registrationForm" class="registration-form" autocomplete="off">
+        <h2>Registration Form</h2>
+        <div class="field">
+            <label for="fullName">Full Name:</label><br>
+            <input type="text" id="fullName" name="fullName"><br>
+            <p id="fullNameError" class="error"></p>
+        </div>
+        <div class="field">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <p id="emailError" class="error"></p>
+        </div>
+        <div class="field">
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone"><br>
+            <p id="phoneError" class="error"></p>
+        </div>
+        <div class="field">
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <p id="passwordError" class="error"></p>
+        </div>
+        <div class="field">
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword"><br>
+            <p id="confirmPasswordError" class="error"></p>
+        </div>
+        <button type="submit">Register</button>
+        <p id="successMessage" class="success"></p>
+    </form>
+
+    <script>
+        // Create a function to validate the form
+        // Create a listener for the form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event){
+            event.preventDefault(); // Prevent the default form submission
+
+            // Clear previous error messages
+            document.getElementById('fullNameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('phoneError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('confirmPasswordError').textContent = '';
+            document.getElementById('successMessage').textContent = '';
+
+            // Flag to track if the form is valid
+            let isValid = true;
+
+            // Validate Full Name
+            const fullName = document.getElementById('fullName').value.trim();
+            if (fullName === '') { // Check if the full name is empty
+                document.getElementById('fullNameError').textContent = 'Full Name is required.';
+                isValid = false;
+            }
+            else if (!/^[a-zA-Z\s']+$/.test(fullName)) { // Check if the full name contains only letters, spaces, and apostrophes
+                document.getElementById('fullNameError').textContent = 'Full Name can only contain letters, spaces, and apostrophes.';
+                isValid = false;
+            }
+
+                // Validate Email
+            const email = document.getElementById('email').value.trim();
+            const validDomains = ['gmail.com', 'yahoo.com', 'outlook.com']; // List of valid email domains
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for basic email format validation
+            const emailDomain = email.split('@')[1]; // Get the domain part of the email
+            if (email === '') 
+                { // Check if the email is empty
+                    document.getElementById('emailError').textContent = 'Email is required.';
+                    isValid = false;
+                }
+            else if (!emailPattern.test(email)) 
+                { // Check if the email is in a valid format
+                    document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                    isValid = false;
+                }
+
+            else if (!validDomains.includes(emailDomain)) 
+                { // Check if the email domain is valid
+                    document.getElementById('emailError').textContent = 'Email domain must be one of the following: ' + validDomains.join(', ') + '.';
+                    isValid = false;
+                }
+
+                // Validate Phone Number
+            const phone = document.getElementById('phone').value.trim();
+            const phonePattern = /^\+?\d{5,15}$/; // Regular expression for phone number validation (allows optional + and 5-15 digits)
+            if (phone === '') {
+                document.getElementById('phoneError').textContent = 'Phone Number is required.';
+                isValid = false;
+            } else if (!phonePattern.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Please enter a valid phone number (5-15 digits).';
+                isValid = false;
+            }
+
+            if(isValid)
+                {
+                    document.getElementById('successMessage').textContent = 'Registration successful!';
+                    document.getElementById('successMessage').className = 'success'; // Set the class to success for styling
+                }
+            else
+                {
+            document.getElementById('successMessage').textContent = 'Please fix the error(s) above.';
+            document.getElementById('successMessage').className = 'error'; // Set the class to error for styling
+                }
+
+        });
+    </script>
+</body>
+</html>
