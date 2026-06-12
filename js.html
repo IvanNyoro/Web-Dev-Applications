@@ -127,12 +127,155 @@ var person = {
 document.write("<br>Email: " + person.email);
 document.write("<br>Phone: " + person.phone);
 
+// userDetails is an object with nested objects and arrays
+var userDetails = {
+    "Director": {
+        name: ["Alex", "Otema"],
+        age: 45,
+        gender: "Male",
+        interests: ["Traveling", "Cooking", "Photography"],
+        email: {
+            personal: "alex.personal@example.com",
+            work: "alex.work@example.com"
+        },
+        phone: {
+            home: "123-456-7890",
+            office: "098-765-4321"
+        },
+        address: {
+            home: "123 Main St, Cityville",
+            office: "456 Business Rd, Metropolis"
+        },
+        "P.O.Box": "PO Box 12345"
+    },
+    "Manager": {
+        name: ["Jane", "Doe"],
+        age: 35,
+        gender: "Female",
+        interests: ["Reading", "Fitness", "Gardening"],
+        email: {
+            personal: "jane.personal@example.com",
+            work: "jane.work@example.com"
+        },
+        phone: {
+            home: "123-456-7890",
+            office: "098-765-4321"
+        },
+        address: {
+            home: "123 Main St, Cityville",
+            office: "456 Business Rd, Metropolis"
+        },
+        "P.O.Box": "PO Box 12345"
+    },
+    "Secretary": {
+        name: ["Emily", "Okello"],
+        age: 28,
+        gender: "Female",
+        interests: ["Reading", "Fitness", "Gardening"],
+        email: {
+            personal: "emily.personal@example.com",
+            work: "emily.work@example.com"
+        },
+        phone: {
+            home: "123-456-7890",
+            office: "098-765-4321"
+        },
+        address: {
+            home: "123 Main St, Cityville",
+            office: "456 Business Rd, Metropolis"
+        },
+        "P.O.Box": "PO Box 12345"
+    },
+    SecretaryBio: function() {
+        return "Madam " + this.Secretary.name.join(" ") + " is our secretary " + this.Secretary.age + "-year-old " + this.Secretary.gender + " who enjoys " + this.Secretary.interests.join(", ") + ". You can contact her at " + this.Secretary.email.work + " or " + this.Secretary.phone.office + ". Or schedule a meeting at her office address: " + this.Secretary.address.office + ".";
+    }
+};
+// Director's office
+document.write("<br>Director's Office: " + userDetails.Director.address.office);
+// Secretary's bio
+document.write("<br>Secretary's Bio: " + userDetails.SecretaryBio());
+
 </script>
 
 <br>
 <br>
+<script>
+    // Loops
+    // while loop
+    document.write("<h4>While Loop:</h4>");
+    var i = 8; // initialization
+    while (i <= 15) { // condition
+        document.write(i + "<br>"); // code to be executed
+        i+=2; // increment by 2
+    }
+    // do-while loop
+    document.write("<h4>Do-While Loop:</h4>");
+    var j = 10; // initialization
+    do {
+        document.write(j + "<br>"); // code to be executed
+        j+=2; // increment by 2
+    } while (j <= 20); // condition
+    // for loop
+    document.write("<h4>For Loop:</h4>");
+    for (var k = 1; k <= 10; k++) { // initialization; condition; increment
+        document.write(k + "<br>"); // code to be executed
+    }
+    // for-of loop (for iterating over arrays)
+    document.write("<h4>For-Of Loop:</h4>");
+    var colors = ["Red", "Green", "Blue", "Yellow"];
+    for (var color of colors) {
+        document.write(color + "<br>"); // code to be executed
+    }
+    // for-in loop (for iterating over object properties)
+    document.write("<h4>For-In Loop:</h4>");
+    var car = {
+        make: "Toyota",
+        model: "Camry",
+        year: 2020
+    };
+    for (var carDetail in car) {
+        document.write(carDetail + ": " + car[carDetail] + "<br>"); // code to be executed
+    }
+        var TimeDate = new Date();
+</script>
 <br>
+<h4>Select registration date</h4>
+
+<select>
+    <option>Select Day</option>
+    <script>
+        document.write('<option value="' + TimeDate.getDate() + '">' + TimeDate.getDate() + '</option>');
+        for (var day = 1; day <= getDaysInMonth(TimeDate); day++) {
+            if(day === TimeDate.getDate()) continue; // Skip the current day since it's already added as the default option
+            document.write('<option value="' + day + '">' + day + '</option>');
+        }
+    </script>
+</select>
+<select>
+    <option>Select Month</option>
+    <script>
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        document.write('<option value="' + TimeDate.getMonth() + '">' + months[TimeDate.getMonth()] + '</option>');
+        for (var month of months) {
+            if(month === months[TimeDate.getMonth()]) continue; // Skip the current month since it's already added as the default option
+            document.write('<option value="' + month + '">' + month + '</option>');
+        }
+    </script>
+</select>
+<select>
+    <option>Select Year</option>
+    <script>
+        var currentYear = TimeDate.getFullYear();
+        document.write('<option value="' + currentYear + '">' + currentYear + '</option>');
+        for (var year = currentYear; year >= 1990; year--) {
+            if(year === currentYear) continue; // Skip the current year since it's already added as the default option
+            document.write('<option value="' + year + '">' + year + '</option>');
+        }
+    </script>
+</select>
+
 <br>
 <br>
 
+</body>
 </body>
